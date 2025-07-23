@@ -1,50 +1,62 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Fill Up Rider
+This is basically the other version of the fill up app, which is specifically for those registering as riders, and who would have the opportunity to view requests made by users for their empty gas cylinders to be delivered. 
+Both apps are in the works
 
-## Get started
+## Features
 
-1. Install dependencies
+- Maps Integration
+- Rider request views
+- Delivery Tracking
+- Realtime Integration
 
-   ```bash
-   npm install
-   ```
 
-2. Start the app
 
-   ```bash
-   npx expo start
-   ```
+## Tech Stack
 
-In the output, you'll find options to open the app in a
+- React Native and Expo
+- Supabase
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Environment Variables
 
-When you're ready, run:
+To run this project, you will need to add the following environment variables to your .env file. The major ones being a supabase anon key and a supabase url key, since the project makes use of supabase
+
+`SUPABASE_ANON_KEY`
+
+`SUPABASE_URL`
+
+
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run reset-project
+  git clone https://link-to-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Go to the project directory
 
-## Learn more
+```bash
+  cd Fillup-Rider
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+Install dependencies
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+  npm install
+```
 
-## Join the community
+Start the server
 
-Join our community of developers creating universal apps.
+```bash
+  npm run start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
