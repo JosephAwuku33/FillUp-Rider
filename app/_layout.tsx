@@ -1,3 +1,4 @@
+import { AuthProvider, useAuth } from "@/context/supabase-provider";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -18,5 +19,30 @@ export default function RootLayout() {
     }
   }, [fontsLoaded, fontError]);
 
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <AuthProvider>
+      <RootNavigator />
+    </AuthProvider>
+  );
+}
+
+function RootNavigator() {
+  const { initialized, session } = useAuth();
+
+  if (!initialized) return;
+  else {
+    SplashScreen.hideAsync();
+  }
+
+  return (
+    <Stack screenOptions={{ headerShown: false, gestureEnabled: false }}>
+      <Stack.Protected guard={!!session}>
+        <Stack.Screen name="(home)" />
+      </Stack.Protected>
+
+      <Stack.Protected guard={!session}>
+        <Stack.Screen name="(auth)" />
+      </Stack.Protected>
+    </Stack>
+  );
 }

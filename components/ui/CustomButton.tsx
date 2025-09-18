@@ -1,45 +1,45 @@
 import React from "react";
 import {
-    GestureResponderEvent,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
 } from "react-native";
 
 type CustomButtonProps = {
   title: string;
   color?: string;
-  onPress: (event: GestureResponderEvent) => void;
-};
+} & TouchableOpacityProps;
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   title,
   color = "#388FE5",
-  onPress,
+  style,
+  ...rest
 }) => (
   <TouchableOpacity
-    style={[styles.button, { backgroundColor: color }]}
-    onPress={onPress}
-    activeOpacity={0.7}
+  style={[styles.button, { backgroundColor: color }, style]}
+  activeOpacity={0.7}
+  {...rest}
   >
-    <Text style={styles.text}>{title}</Text>
+  <Text style={styles.text}>{title}</Text>
   </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    borderRadius: 12,
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
+  paddingVertical: 16,
+  paddingHorizontal: 24,
+  borderRadius: 12,
+  alignItems: "center",
+  justifyContent: "center",
+  width: "100%",
   },
   text: {
-    color: "#fff",
-    fontSize: 14,
-    fontWeight: "bold",
-    fontFamily: "Lato"
+  color: "#fff",
+  fontSize: 14,
+  fontWeight: "bold",
+  fontFamily: "Lato"
   },
 });
 

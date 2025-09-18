@@ -10,10 +10,13 @@ export default function LicenseUploadBox() {
   const handleUpload = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images"],
+      allowsMultipleSelection: false, // Can only select one image
+      allowsEditing: true, // Allows the user to crop / rotate their photo before uploading it
       quality: 1,
+      exif: false, // We don't want nor need that data.
     });
 
-    if (result.canceled) return;
+    if (result.canceled || !result.assets || result.assets.length === 0) return;
 
     const file = result.assets[0];
 

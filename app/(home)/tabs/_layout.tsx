@@ -1,3 +1,4 @@
+import Header from "@/components/Home/Header";
 import { FontAwesome, Octicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import React from "react";
@@ -20,6 +21,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Octicons name="home" size={size} color={color} />
           ),
+          header: () => <Header />,
         }}
       />
       <Tabs.Screen
